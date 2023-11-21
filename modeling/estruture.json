@@ -1,0 +1,189 @@
+{
+    "categories": [
+        {
+            "_id": "category_id_1",
+            "name": "Ropa",
+            "description": "Ropa de diferentes estilos"
+        },
+        {
+            "_id": "category_id_2",
+            "name": "Electrónica",
+            "description": "Productos electrónicos"
+        }
+    ],
+    "subcategories": [
+        {
+            "_id": "subcategory_id_1",
+            "name": "Camisetas",
+            "description": "Camisetas de diferentes colores y tallas",
+            "category": "category_id_1"
+        },
+        {
+            "_id": "subcategory_id_2",
+            "name": "Teléfonos",
+            "description": "Teléfonos móviles de última generación",
+            "category": "category_id_2"
+        }
+    ],
+    "suppliers": [
+        {
+            "_id": "supplier_id_1",
+            "name": "Proveedor Ropa",
+            "contactInfo": {
+                "email": "proveedorropa@example.com",
+                "phone": "123-456-7890",
+                "address": "Calle Principal 123, Ciudad, País"
+            }
+        },
+        {
+            "_id": "supplier_id_2",
+            "name": "Proveedor Electrónica",
+            "contactInfo": {
+                "email": "proveedorelectronica@example.com",
+                "phone": "987-654-3210",
+                "address": "Avenida Principal 456, Ciudad, País"
+            }
+        }
+    ],
+    "products": [
+        {
+            "_id": "product_id_1",
+            "name": "Camiseta de Algodón",
+            "description": "Camiseta de algodón suave",
+            "coverImage": "url_de_la_portada.jpg",
+            "variations": [
+                {
+                    "variation": [
+                        {
+                            "name": "Talla",
+                            "value": "S"
+                        },
+                        {
+                            "name": "Color",
+                            "value": "Rojo"
+                        }
+                    ],
+                    "price": 25.99,
+                    "weight": 0.2,
+                    "height": 10,
+                    "width": 5,
+                    "length": 15,
+                    "photos": [
+                        "url_de_la_foto_s_rojo_1.jpg"
+                    ],
+                    "offers": [
+                        {
+                            "offerName": "Descuento por temporada",
+                            "discountPercentage": 10
+                        }
+                    ],
+                    "supplier": "supplier_id_1",
+                    "slug": "camiseta-algodon-talla-s-rojo",
+                    "stock": 50,
+                    "puntos": 50,
+                    "ventas": 100
+                },
+                {
+                    "variation": [
+                        {
+                            "name": "Talla",
+                            "value": "M"
+                        },
+                        {
+                            "name": "Color",
+                            "value": "Azul"
+                        }
+                    ],
+                    "price": 29.99,
+                    "weight": 0.3,
+                    "height": 12,
+                    "width": 6,
+                    "length": 16,
+                    "photos": [
+                        "url_de_la_foto_m_azul_1.jpg"
+                    ],
+                    "offers": [
+                        {
+                            "offerName": "Oferta de lanzamiento",
+                            "discountPercentage": 15
+                        }
+                    ],
+                    "supplier": "supplier_id_1",
+                    "slug": "camiseta-algodon-talla-m-azul",
+                    "stock": 30,
+                    "puntos": 30,
+                    "ventas": 75
+                }
+            ],
+            "category": "category_id_1",
+            "subcategory": "subcategory_id_1"
+        },
+        {
+            "_id": "product_id_2",
+            "name": "Smartphone",
+            "description": "Teléfono inteligente avanzado",
+            "coverImage": "url_de_la_portada_smartphone.jpg",
+            "variations": [
+                {
+                    "variation": [
+                        {
+                            "name": "Modelo",
+                            "value": "iPhone 13"
+                        },
+                        {
+                            "name": "Color",
+                            "value": "Gris"
+                        }
+                    ],
+                    "price": 899.99,
+                    "weight": 0.4,
+                    "height": 15,
+                    "width": 8,
+                    "length": 5,
+                    "photos": [
+                        "url_de_la_foto_iphone_gris_1.jpg"
+                    ],
+                    "offers": [
+                        {
+                            "offerName": "Oferta especial",
+                            "discountPercentage": 20
+                        }
+                    ],
+                    "supplier": "supplier_id_2",
+                    "slug": "iphone-13-color-gris",
+                    "stock": 20,
+                    "puntos": 80,
+                    "ventas": 50
+                },
+                {
+                    "variation": [
+                        {
+                            "name": "Modelo",
+                            "value": "Samsung Galaxy S21"
+                        },
+                        {
+                            "name": "Color",
+                            "value": "Negro"
+                        }
+                    ],
+                    "price": 849.99,
+                    "weight": 0.35,
+                    "height": 14,
+                    "width": 7,
+                    "length": 4,
+                    "photos": [
+                        "url_de_la_foto_samsung_negro_1.jpg"
+                    ],
+                    "offers": [],
+                    "supplier": "supplier_id_2",
+                    "slug": "samsung-galaxy-s21-color-negro",
+                    "stock": 15,
+                    "puntos": 60,
+                    "ventas": 35
+                }
+            ],
+            "category": "category_id_2",
+            "subcategory": "subcategory_id_2"
+        }
+    ]
+}
