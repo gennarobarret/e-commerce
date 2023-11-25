@@ -2,65 +2,78 @@
     "categories": [
         {
             "_id": "category_id_1",
-            "name": "Ropa",
-            "description": "Ropa de diferentes estilos"
+            "name": "Clothing",
+            "description": "Clothing of different styles",
+            "createdBy": "team_member_id_1",
+            "editedBy": "team_member_id_2"
         },
         {
             "_id": "category_id_2",
-            "name": "Electrónica",
-            "description": "Productos electrónicos"
+            "name": "Electronics",
+            "description": "Electronic products",
+            "createdBy": "team_member_id_2",
+            "editedBy": "team_member_id_1"
         }
     ],
     "subcategories": [
         {
             "_id": "subcategory_id_1",
-            "name": "Camisetas",
-            "description": "Camisetas de diferentes colores y tallas",
-            "category": "category_id_1"
+            "name": "T-shirts",
+            "description": "T-shirts of different colors and sizes",
+            "category": "category_id_1",
+            "createdBy": "team_member_id_1",
+            "editedBy": "team_member_id_2"
         },
         {
             "_id": "subcategory_id_2",
-            "name": "Teléfonos",
-            "description": "Teléfonos móviles de última generación",
-            "category": "category_id_2"
+            "name": "Phones",
+            "description": "Latest generation mobile phones",
+            "category": "category_id_2",
+            "createdBy": "team_member_id_2",
+            "editedBy": "team_member_id_1"
         }
     ],
     "suppliers": [
         {
             "_id": "supplier_id_1",
-            "name": "Proveedor Ropa",
+            "name": "Clothing Supplier",
             "contactInfo": {
-                "email": "proveedorropa@example.com",
+                "email": "clothingsupplier@example.com",
                 "phone": "123-456-7890",
-                "address": "Calle Principal 123, Ciudad, País"
-            }
+                "address": "123 Main Street, City, Country"
+            },
+            "createdBy": "team_member_id_1",
+            "editedBy": "team_member_id_2"
         },
         {
             "_id": "supplier_id_2",
-            "name": "Proveedor Electrónica",
+            "name": "Electronics Supplier",
             "contactInfo": {
-                "email": "proveedorelectronica@example.com",
+                "email": "electronicssupplier@example.com",
                 "phone": "987-654-3210",
-                "address": "Avenida Principal 456, Ciudad, País"
-            }
+                "address": "456 Main Avenue, City, Country"
+            },
+            "createdBy": "team_member_id_2",
+            "editedBy": "team_member_id_1"
         }
     ],
     "products": [
         {
             "_id": "product_id_1",
-            "name": "Camiseta de Algodón",
-            "description": "Camiseta de algodón suave",
-            "coverImage": "url_de_la_portada.jpg",
+            "name": "Cotton T-shirt",
+            "description": "Soft cotton t-shirt",
+            "coverImage": "cover_image_url.jpg",
             "variations": [
                 {
+                    "_id": "variation_id_1",
                     "variation": [
                         {
-                            "name": "Talla",
+                            "name": "Size",
                             "value": "S"
                         },
                         {
                             "name": "Color",
-                            "value": "Rojo"
+                            "value": "Red"
                         }
                     ],
                     "price": 25.99,
@@ -69,29 +82,32 @@
                     "width": 5,
                     "length": 15,
                     "photos": [
-                        "url_de_la_foto_s_rojo_1.jpg"
+                        "photo_url_s_red_1.jpg"
                     ],
                     "offers": [
                         {
-                            "offerName": "Descuento por temporada",
+                            "offerName": "Seasonal Discount",
                             "discountPercentage": 10
                         }
                     ],
                     "supplier": "supplier_id_1",
-                    "slug": "camiseta-algodon-talla-s-rojo",
+                    "slug": "cotton-t-shirt-size-s-red",
                     "stock": 50,
-                    "puntos": 50,
-                    "ventas": 100
+                    "points": 50,
+                    "sales": 100,
+                    "createdBy": "team_member_id_1",
+                    "editedBy": "team_member_id_2"
                 },
                 {
+                    "_id": "variation_id_2",
                     "variation": [
                         {
-                            "name": "Talla",
+                            "name": "Size",
                             "value": "M"
                         },
                         {
                             "name": "Color",
-                            "value": "Azul"
+                            "value": "Blue"
                         }
                     ],
                     "price": 29.99,
@@ -100,39 +116,44 @@
                     "width": 6,
                     "length": 16,
                     "photos": [
-                        "url_de_la_foto_m_azul_1.jpg"
+                        "photo_url_m_blue_1.jpg"
                     ],
                     "offers": [
                         {
-                            "offerName": "Oferta de lanzamiento",
+                            "offerName": "Launch Offer",
                             "discountPercentage": 15
                         }
                     ],
                     "supplier": "supplier_id_1",
-                    "slug": "camiseta-algodon-talla-m-azul",
+                    "slug": "cotton-t-shirt-size-m-blue",
                     "stock": 30,
-                    "puntos": 30,
-                    "ventas": 75
+                    "points": 30,
+                    "sales": 75,
+                    "createdBy": "team_member_id_1",
+                    "editedBy": "team_member_id_2"
                 }
             ],
             "category": "category_id_1",
-            "subcategory": "subcategory_id_1"
+            "subcategory": "subcategory_id_1",
+            "createdBy": "team_member_id_1",
+            "editedBy": "team_member_id_2"
         },
         {
             "_id": "product_id_2",
             "name": "Smartphone",
-            "description": "Teléfono inteligente avanzado",
-            "coverImage": "url_de_la_portada_smartphone.jpg",
+            "description": "Advanced smartphone",
+            "coverImage": "smartphone_cover_image_url.jpg",
             "variations": [
                 {
+                    "_id": "variation_id_3",
                     "variation": [
                         {
-                            "name": "Modelo",
+                            "name": "Model",
                             "value": "iPhone 13"
                         },
                         {
                             "name": "Color",
-                            "value": "Gris"
+                            "value": "Gray"
                         }
                     ],
                     "price": 899.99,
@@ -141,29 +162,32 @@
                     "width": 8,
                     "length": 5,
                     "photos": [
-                        "url_de_la_foto_iphone_gris_1.jpg"
+                        "photo_url_iphone_gray_1.jpg"
                     ],
                     "offers": [
                         {
-                            "offerName": "Oferta especial",
+                            "offerName": "Special Offer",
                             "discountPercentage": 20
                         }
                     ],
                     "supplier": "supplier_id_2",
-                    "slug": "iphone-13-color-gris",
+                    "slug": "iphone-13-color-gray",
                     "stock": 20,
-                    "puntos": 80,
-                    "ventas": 50
+                    "points": 80,
+                    "sales": 50,
+                    "createdBy": "team_member_id_2",
+                    "editedBy": "team_member_id_1"
                 },
                 {
+                    "_id": "variation_id_4",
                     "variation": [
                         {
-                            "name": "Modelo",
+                            "name": "Model",
                             "value": "Samsung Galaxy S21"
                         },
                         {
                             "name": "Color",
-                            "value": "Negro"
+                            "value": "Black"
                         }
                     ],
                     "price": 849.99,
@@ -172,18 +196,152 @@
                     "width": 7,
                     "length": 4,
                     "photos": [
-                        "url_de_la_foto_samsung_negro_1.jpg"
+                        "photo_url_samsung_black_1.jpg"
                     ],
                     "offers": [],
                     "supplier": "supplier_id_2",
-                    "slug": "samsung-galaxy-s21-color-negro",
+                    "slug": "samsung-galaxy-s21-color-black",
                     "stock": 15,
-                    "puntos": 60,
-                    "ventas": 35
+                    "points": 60,
+                    "sales": 35,
+                    "createdBy": "team_member_id_2",
+                    "editedBy": "team_member_id_1"
                 }
             ],
             "category": "category_id_2",
-            "subcategory": "subcategory_id_2"
+            "subcategory": "subcategory_id_2",
+            "createdBy": "team_member_id_2",
+            "editedBy": "team_member_id_1"
         }
-    ]
+    ],
+    "teamWork": [
+        {
+            "_id": "team_member_id_1",
+            "name": "John Doe",
+            "role": "Administrator",
+            "email": "johndoe@example.com",
+            "phone": "123-456-7890",
+            "additionalInfo": "Specialized in database management",
+            "profileImage": "john_profile_image_url.jpg"
+        },
+        {
+            "_id": "team_member_id_2",
+            "name": "Jane Smith",
+            "role": "Developer",
+            "email": "janesmith@example.com",
+            "phone": "987-654-3210",
+            "additionalInfo": "Expert in APIs and backend",
+            "profileImage": "jane_profile_image_url.jpg"
+        },
+        {
+            "_id": "team_member_id_3",
+            "name": "Eva Martinez",
+            "role": "Designer",
+            "email": "evamartinez@example.com",
+            "phone": "555-555-5555",
+            "additionalInfo": "Responsible for interface design",
+            "profileImage": "eva_profile_image_url.jpg"
+        }
+    ],
+    "clients": [
+        {
+            "_id": "client_id_1",
+            "name": "Client 1",
+            "email": "client1@example.com",
+            "phone": "123-456-7890",
+            "address": {
+                "country": "Country1",
+                "state": "State1",
+                "address1": "123 Main Street",
+                "address2": "Apartment 1A",
+                "zipcode": "12345"
+            },
+            "orders": [
+                {
+                    "_id": "order_id_1",
+                    "products": [
+                        {
+                            "productId": "product_id_1",
+                            "quantity": 2
+                        },
+                        {
+                            "productId": "product_id_2",
+                            "quantity": 1
+                        }
+                    ],
+                    "totalPrice": 85.97,
+                    "orderDate": "2023-11-21"
+                }
+            ]
+        },
+        {
+            "_id": "client_id_2",
+            "name": "Client 2",
+            "email": "client2@example.com",
+            "phone": "987-654-3210",
+            "address": {
+                "country": "Country2",
+                "state": "State2",
+                "address1": "456 Main Avenue",
+                "address2": "Floor 5",
+                "zipcode": "54321"
+            },
+            "orders": [
+                {
+                    "_id": "order_id_2",
+                    "products": [
+                        {
+                            "productId": "product_id_1",
+                            "quantity": 1
+                        }
+                    ],
+                    "totalPrice": 29.99,
+                    "orderDate": "2023-11-20"
+                }
+            ]
+        }
+    ],
+    "reviews": [
+        {
+            "_id": "review_id_1",
+            "productId": "product_id_1",
+            "clientId": "client_id_1",
+            "rating": 4,
+            "comment": "I love this t-shirt, very comfortable."
+        },
+        {
+            "_id": "review_id_2",
+            "productId": "product_id_2",
+            "clientId": "client_id_2",
+            "rating": 5,
+            "comment": "Excellent smartphone, works perfectly."
+        }
+    ],
+    "inventory": [
+        {
+            "variationId": "variation_id_1",
+            "stock": 50
+        },
+        {
+            "variationId": "variation_id_2",
+            "stock": 30
+        },
+        {
+            "variationId": "variation_id_3",
+            "stock": 20
+        },
+        {
+            "variationId": "variation_id_4",
+            "stock": 15
+        }
+    ],
+    "config": {
+        "currency": "USD",
+        "taxRate": 0.15,
+        "shippingOptions": [
+            "Standard",
+            "Express"
+        ],
+        "defaultShipping": "Standard"
+    }
 }

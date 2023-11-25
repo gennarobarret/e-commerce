@@ -8,7 +8,6 @@ var jwt = require('../helpers/jwt');
 const create_admin = async function (req, res) {
     try {
         const data = req.body;
-        console.log("🚀 ~ file: AdminController.js:10 ~ data:", data);
         const adminExists = await Admin.findOne({ email: data.email });
         if (adminExists) {
             return res.status(200).send({ message: 'Email already exists in the database', data: undefined });
