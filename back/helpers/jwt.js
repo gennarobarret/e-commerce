@@ -9,9 +9,9 @@ exports.createToken = function (user) {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        role: user.rol,
+        role: user.role,
         iat: moment().unix(),
-        epx: moment().add(7, "days").unix(),
+        epx: moment().add(1, "days").unix(),
     };
     return jwt.encode(payload, secret);
 };

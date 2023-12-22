@@ -1,0 +1,128 @@
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+<main>
+    <div class="container-xl px-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <!-- Basic registration form-->
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header justify-content-center">
+                        <h3 class="fw-light my-4">Create Account</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Registration form-->
+                        <form [formGroup]="registerForm" (ngSubmit)="register()">
+                            <!-- Form Row-->
+                            <div class="row gx-3">
+                                <div class="col-md-6">
+                                    <!-- Form Group (first name)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputFirstName">First Name</label>
+                                        <input type="text" formControlName="firstName" class="form-control"
+                                            id="inputFirstName" placeholder="Enter first name" [ngClass]="{
+                                                'is-invalid': submitted && f['firstName'].errors
+                                                }" />
+                                        <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['firstName'].errors['required']">
+                                                First Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- Form Group (last name) -->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputLastName">Last Name</label>
+                                        <input type="text" formControlName="lastName" class="form-control"
+                                            id="inputLastName" placeholder="Enter last name" [ngClass]="{
+                                                'is-invalid': submitted && f['lastName'].errors
+                                                }" />
+                                        <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['lastName'].errors['required']">
+                                                Last Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Form Group (email address) -->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                <input type="text" formControlName="email" class="form-control" id="inputEmailAddress"
+                                    aria-describedby="emailHelp" placeholder="Enter email address" [ngClass]="{
+                                        'is-invalid': submitted && f['email'].errors
+                                        }" />
+                                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['email'].errors['required']">
+                                        Email is required
+                                    </div>
+                                    <div *ngIf="f['email'].errors['email']">
+                                        Email must be a valid email address
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Form Row -->
+                            <div class="row gx-3">
+                                <div class="col-md-6">
+                                    <!-- Form Group (password)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputPassword">Password</label>
+                                        <input type="password" formControlName="password" class="form-control"
+                                            id="inputPassword" placeholder="Enter password" [ngClass]="{
+                                                'is-invalid': submitted && f['password'].errors
+                                                }" />
+                                        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['password'].errors['required']">
+                                                Password is required
+                                            </div>
+                                            <div *ngIf="f['password'].errors['minlength']">
+                                                Password must be at least 6 characters
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- Form Group (confirm password)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="inputConfirmPassword">Confirm
+                                            Password</label>
+                                        <input type="password" formControlName="confirmPassword" class="form-control"
+                                            id="inputConfirmPassword" placeholder="Confirm password" [ngClass]="{
+                                                'is-invalid':
+                                                submitted && f['confirmPassword'].errors
+                                                }" />
+                                        <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['confirmPassword'].errors['required']">
+                                                Confirm Password is required
+                                            </div>
+                                            <div *ngIf="f['confirmPassword'].errors['mustMatch']">
+                                                Passwords must match
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Form Group (create account submit)-->
+                            <a class="btn btn-primary btn-block" (click)="register()">Create Account</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</div>
+<div id="layoutAuthentication_footer">
+    <footer class="footer-admin mt-auto footer-dark">
+        <div class="container-xl px-4">
+            <div class="row">
+                <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                <div class="col-md-6 text-md-end small">
+                    <a href="#!">Privacy Policy</a>
+                    &middot;
+                    <a href="#!">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

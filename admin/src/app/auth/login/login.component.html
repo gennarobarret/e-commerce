@@ -1,0 +1,77 @@
+<div id="layoutAuthentication">
+  <div id="layoutAuthentication_content">
+
+    <main>
+      <div class="container-xl px-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <!-- Basic login form-->
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+              <div class="card-header justify-content-center">
+                <h3 class="fw-light my-4">Login</h3>
+              </div>
+              <div class="card-body">
+                <!-- Login form-->
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                  <!-- Form Group (email address)-->
+                  <div class="mb-3">
+                    <label class="small mb-1" for="inputEmailAddress">Email</label>
+                    <input type="email" class="form-control" formControlName="email" id="floatingInput"
+                      placeholder="name@example.com" required autocomplete="username" />
+                    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+                      <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</span>
+                      <span *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email.</span>
+                    </div>
+                  </div>
+                  <!-- Form Group (password)-->
+                  <div class="mb-3">
+                    <label class="small mb-1" for="inputPassword">Password</label>
+                    <input [type]="passwordFieldType" class="form-control appended-form-control"
+                      formControlName="password" id="floatingPassword" placeholder="Password" required
+                      autocomplete="current-password" />
+                    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                      class="text-danger">
+                      <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</span>
+                    </div>
+                  </div>
+                  <!-- Form Group (remember password checkbox)-->
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" id="rememberPasswordCheck" type="checkbox" value="" />
+                      <label class="form-check-label" for="rememberPasswordCheck">Remember password</label>
+                    </div>
+                  </div>
+                  <!-- Form Group (login box)-->
+                  <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                    <a class="small" href="auth-password-basic.html">Forgot Password?</a>
+                    <!-- <a class="btn btn-primary" href="dashboard-1.html">Login</a> -->
+                    <button type="submit" class="btn btn-outline-secondary btn-block">Login</button>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer text-center">
+                <div class="small"><a href="auth-register-basic.html">Need an account? Sign up!</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+  <div id="layoutAuthentication_footer">
+    <footer class="footer-admin mt-auto footer-dark">
+      <div class="container-xl px-4">
+        <div class="row">
+          <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+          <div class="col-md-6 text-md-end small">
+            <a href="#!">Privacy Policy</a>
+            &middot;
+            <a href="#!">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+</div>
