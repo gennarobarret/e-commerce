@@ -1,0 +1,71 @@
+<!-- <h1>login works</h1> -->
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+
+        <main>
+            <div class="container-xl px-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <!-- Basic login form-->
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header justify-content-center">
+                                <h3 class="fw-light my-4">Login</h3>
+                            </div>
+                            <div class="card-body">
+                                <!-- Login form-->
+                                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                                    <!-- Form Group (userName)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="userName">UserName</label>
+                                        <input class="form-control" id="userName" type="text"
+                                        placeholder="Enter your userName" formControlName="userName" autocomplete="username"
+                                        [ngClass]="{'is-invalid': loginForm.get('userName')?.invalid && (loginForm.get('userName')?.dirty || loginForm.get('userName')?.touched)}" />
+                                        <div *ngIf="loginForm.get('userName')?.invalid && (loginForm.get('userName')?.dirty || loginForm.get('userName')?.touched)" class="text-danger">
+                                            <span *ngIf="loginForm.get('userName')?.errors?.['required']">
+                                                UserName is required.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- Form Group (password)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="password">Password</label>
+                                        <input class="form-control" id="password" type="password"
+                                        placeholder="Enter your password" formControlName="password" autocomplete="current-password"
+                                        [ngClass]="{'is-invalid': loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)}" />
+                                        <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" class="text-danger">
+                                            <span *ngIf="loginForm.get('password')?.errors?.['required']">
+                                                Password is required.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- Form Group (login box)-->
+                                    <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                        <a class="small" href="auth-password-basic.html">Forgot Password?</a>
+                                        <!-- <a class="btn btn-primary" href="dashboard-1.html">Login</a> -->
+                                        <button type="submit" class="btn btn-outline-secondary btn-block">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+    <div id="layoutAuthentication_footer">
+        <footer class="footer-admin mt-auto footer-dark">
+            <div class="container-xl px-4">
+                <div class="row">
+                    <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                    <div class="col-md-6 text-md-end small">
+                        <a href="#!">Privacy Policy</a>
+                        &middot;
+                        <a href="#!">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</div>
