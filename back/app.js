@@ -2,13 +2,16 @@ require('dotenv').config();
 
 'use strict';
 
-var express = require('express');
-var app = express();
-var bodyparser = require('body-parser');
-var mongoose = require('mongoose');
-var port = process.env.PORT || 4201;
+const express = require('express');
+const app = express();
+const bodyparser = require('body-parser');
+const mongoose = require('mongoose');
+const port = process.env.PORT || 4201;
 
-var admin_route = require('./routes/admin');
+const auth_route = require('./routes/authRoute');
+const user_route = require('./routes/userRoute');
+const initialConfig_route = require('./routes/initialConfigRoute');
+
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
@@ -39,7 +42,9 @@ app.use((req, res, next) => {
 });
 
 // Initialize routes
-app.use('/api', admin_route);
+app.use('/api', initialConfig_route);
+app.use('/api', auth_route);
+app.use('/api', user_route);
 
 
 module.exports = app;

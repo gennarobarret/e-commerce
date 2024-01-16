@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { LoginCredentials } from 'src/app/core/model';
+import { LoginCredentials } from 'src/app/core/models';
 import { GLOBAL } from '../config/GLOBAL';
 import { Observable, throwError, Subject, EMPTY } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
@@ -15,12 +15,12 @@ import { tap, catchError } from 'rxjs/operators';
 export class AuthService {
   private url: string = GLOBAL.url;
   private loginSuccessSubject = new Subject<boolean>();
-  
+
   public loginSuccessObservable = this.loginSuccessSubject.asObservable();
 
   constructor(private _http: HttpClient, private _router: Router) { }
 
-  
+
   getToken(): string | null {
     return localStorage.getItem('token');
   }
@@ -58,7 +58,7 @@ export class AuthService {
         catchError(error => this.handleError(error))
       );
   }
-  
+
 
   logout(): void {
     this.removeToken();
@@ -73,7 +73,7 @@ export class AuthService {
     }
     return this._http.get(`${this.url}get_admin`);
   }
-  
+
 
   check_admin_exists(): Observable<any> {
     return this._http.get<any>(`${this.url}check_admin_exists`);
@@ -82,7 +82,29 @@ export class AuthService {
   createAdmin(data: any): Observable<any> {
     return this._http.post(`${this.url}create_admin`, data);
   }
-  
+
+  update_admin(data: any): Observable<any> {
+    if (data.profileImage) {
+      const fd = new FormData();
+      fd.append('_id', data._id);
+      fd.append('userName', data.userName);
+      fd.append('firstName', data.firstName);
+      fd.append('lastName', data.lastName);
+      fd.append('organizationName', data.organizationName);
+      fd.append('emailAddress', data.emailAddress);
+      fd.append('countryAddress', data.countryAddress);
+      fd.append('stateAddress', data.stateAddress);
+      fd.append('phoneNumber', data.phoneNumber);
+      fd.append('birthday', data.birthday);
+      fd.append('role', data.role);
+      fd.append('identification', data.identification);
+      fd.append('additionalInfo', data.additionalInfo);
+      fd.append('profileImage', data.profileImage);
+      return this._http.put(`${this.url}update_admin`, fd);
+    } else {
+      return this._http.put(`${this.url}update_admin`, data);
+    }
+  }
 
   private handleError(error: any): Observable<never> {
     let errorMessage = error.error.message || 'An error occurred';

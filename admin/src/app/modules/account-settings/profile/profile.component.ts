@@ -1,242 +1,346 @@
-import { Component } from '@angular/core';
-import { GLOBAL } from 'src/app/core/config/GLOBAL';
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/auth/auth.service';
-import { ToastService } from 'src/app/shared/services/toast.service';
-import { ProfileData } from 'src/app/core/model/profile-data';
-import { GeoInfoService } from 'src/app/shared/services/geo-info.service';
-import { switchMap, catchError, throwError } from 'rxjs';
+import { Component } from "@angular/core";
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from "@angular/forms";
+import { Router } from "@angular/router";
+import { AuthService } from "src/app/core/auth/auth.service";
+import { ToastService } from "src/app/shared/services/toast.service";
+import { ProfileData } from "src/app/core/models/profile-data.interface";
+import { GeoInfoService } from "src/app/shared/services/geo-info.service";
 
+import { DateService } from "src/app/shared/services/date.service";
+import { GLOBAL } from "src/app/core/config/GLOBAL";
+import { Renderer2, ViewChild, ElementRef } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Country } from "src/app/core/models/country.model";
+import { State } from "src/app/core/models/state.model";
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
+  selector: "app-profile",
+  templateUrl: "./profile.component.html",
+  styleUrls: ["./profile.component.css"]
 })
 export class ProfileComponent {
-  updateForm!: FormGroup;
-  submitted = false;
+  @ViewChild('fileInput') fileInput!: ElementRef;
 
-  public user: any = {
-    data: {},
-    address: {
-      country: '',
-      state: '',
-    },
-  };
-  countries: any[] = [];
-  states: any[] = [];
+  updateForm!: FormGroup;
+  user: ProfileData | null = null;
+  countries: Country[] = [];
+  states: State[] = [];
+  filteredStates: State[] = [];
+  load_data: boolean = false;
+  load_btn: boolean = false;
+  imageUrl: any | ArrayBuffer = 'assets/img/illustrations/profiles/profile-2.png';
+  selectedFile: File | null = null;
+  url = GLOBAL.url;
+  private userName: string = '';
+  private userId: string = '';
+  private userRole: string = '';
+  private userIdentification: string = '';
+  private subscriptions = new Subscription();
 
   constructor(
     private _formBuilder: FormBuilder,
     private _authService: AuthService,
     private _router: Router,
     private _toastService: ToastService,
-    private _geoInfoService: GeoInfoService
+    private _geoInfoService: GeoInfoService,
+    private _dataService: DateService,
+    private _renderer: Renderer2
   ) {
     this.updateForm = this._formBuilder.group({
       inputUserName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(12),
-          Validators.maxLength(25),
-          Validators.pattern(/^\S*$/),
-          Validators.pattern(/^[a-zA-Z0-9]*$/),
-        ],
+        { value: "", disabled: true },
+        [Validators.required]
       ],
       inputFirstName: [
-        '',
+        "",
         [
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(25),
-          Validators.pattern('^[a-zA-Z0-9\\sñÑ]+$'),
-        ],
+          Validators.pattern("^[a-zA-Z0-9\\sñÑ]+$")
+        ]
       ],
       inputLastName: [
-        '',
+        "",
         [
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(25),
-          Validators.pattern('^[a-zA-Z0-9\\sñÑ]+$'),
-        ],
+          Validators.pattern("^[a-zA-Z0-9\\sñÑ]+$")
+        ]
       ],
       inputOrganizationName: [
-        '',
+        "",
         [
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(30),
-          Validators.pattern('^[a-zA-Z0-9\\sñÑ]+$'),
-        ],
+          Validators.pattern("^[a-zA-Z0-9\\sñÑ]+$")
+        ]
       ],
-      inputEmailAddress: ['', [Validators.required, Validators.email]],
-      inputAddress: this._formBuilder.group({
-        street1: ['', [Validators.required]],
-        street2: [''],
-        city: [''],
-        state: ['', [Validators.required]],
-        zip: [''],
-        country: ['', [Validators.required]],
-      }),
+      inputEmailAddress: ["", [Validators.required, Validators.email]],
+      inputCountryAddress: ["", [Validators.required]],
+      inputStateAddress: ["", [Validators.required]],
       inputPhoneNumber: [
-        '',
-        [Validators.required, Validators.pattern('[0-9]+')],
+        "",
+        [Validators.required, Validators.pattern("[0-9]+")]
       ],
-      inputBirthday: ['', [Validators.required, this.validateDate.bind(this)]],
-      inputRole: [{ value: '', disabled: true }, [Validators.required]],
+      inputBirthday: [
+        "",
+        [Validators.required, this._dataService.validateDate.bind(this)]
+      ],
+      inputRole: [{ value: "", disabled: true }, [Validators.required]],
       inputIdentification: [
-        { value: '', disabled: true },
-        [Validators.required],
+        { value: "", disabled: true },
+        [Validators.required]
       ],
       inputAdditionalInfo: [
-        '',
+        "",
         [
           Validators.required,
           Validators.minLength(10),
           Validators.maxLength(50),
-          Validators.pattern('^[a-zA-Z0-9\\sñÑ]+$'),
-        ],
+          Validators.pattern("^[a-zA-Z0-9\\sñÑ]+$")
+        ]
       ],
-      inputProfileImage: ['', [Validators.required]],
+      inputProfileImage: [""]
     });
   }
 
   ngOnInit(): void {
+    this.fetchUserData();
+    this.loadCountries();
+  }
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  private initUpdateForm() {
+    this.updateForm = this._formBuilder.group({
+
+    });
+  }
+
+  fetchUserData() {
+    this._authService.get_admin().subscribe(
+      response => {
+        if (response.data === undefined) {
+          this._router.navigate([""]);
+        } else {
+          this.user = response.data as ProfileData;
+          if (!this.user._id) {
+            console.error('Error: _id is missing from the user data');
+            return;
+          }
+          this.userId = this.user._id;
+          this.userName = this.user.userName;
+          this.userRole = this.user.role;
+          this.userIdentification = this.user.identification;
+          this.updateFormWithUserData(this.user);
+          this.filterStatesByCountry(this.user.countryAddress);
+        }
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
+
+  private updateFormWithUserData(userData: ProfileData) {
+    const birthdayFormatted = this._dataService.convertDateFormat(
+      userData.birthday
+    );
+    this.imageUrl = this.url + 'get_picture_profile/' + userData.profileImage;
+    this.updateForm.patchValue({
+      inputUserName: userData.userName,
+      inputFirstName: userData.firstName,
+      inputLastName: userData.lastName,
+      inputOrganizationName: userData.organizationName,
+      inputCountryAddress: userData.countryAddress,
+      inputStateAddress: userData.stateAddress,
+      inputEmailAddress: userData.emailAddress,
+      inputPhoneNumber: userData.phoneNumber,
+      inputBirthday: birthdayFormatted,
+      inputRole: userData.role,
+      inputIdentification: userData.identification,
+      inputAdditionalInfo: userData.additionalInfo,
+      inputCreatedAt: userData.createdAt,
+      inputUpdatedAt: userData.updatedAt,
+    });
+  }
+
+  private loadCountries() {
+    this._geoInfoService.get_Countries().subscribe(
+      data => {
+        this.countries = data.sort((a: Country, b: Country) =>
+          a.name.localeCompare(b.name)
+        );
+        this.loadStates();
+      },
+      error => {
+        console.error("Error loading countries", error);
+      }
+    );
+  }
+
+  private loadStates() {
+    this._geoInfoService.get_States().subscribe(
+      data => {
+        this.states = data.sort((a: State, b: State) =>
+          a.province_name.localeCompare(b.province_name)
+        );
+      },
+      error => {
+        console.error("Error loading states", error);
+      }
+    );
+  }
+
+  filterStatesByCountry(countryId: string | number) {
+    const numericCountryId = Number(countryId);
+    this.filteredStates = this.states.filter(
+      state => state.country_id === numericCountryId
+    );
+    const stateControl = this.updateForm.get("inputState");
+    if (stateControl) {
+      stateControl.setValue(null);
+    }
+  }
+
+  onCountryChange(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    const countryId = selectElement.value;
+    this.filterStatesByCountry(countryId);
+    const stateControl = this.updateForm.get('inputStateAddress');
+    if (stateControl) {
+      stateControl.setValue("");
+    }
+  }
+
+  fileChangeEvent(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.selectedFile = inputElement.files[0];
+      this.validateAndUpdateImg(this.selectedFile);
+    }
   }
 
 
-  // fetchUserData() {
-  //   this._authService.get_admin().subscribe(
-  //     (response) => {
-  //       this.user = response;
-  //       if (response.data === undefined) {
-  //         this._router.navigate(['']);
-  //       } else {
-  //         const {
-  //           userName,
-  //           firstName,
-  //           lastName,
-  //           organizationName,
-  //           emailAddress,
-  //           address,
-  //           phoneNumber,
-  //           birthday,
-  //           role,
-  //           identification,
-  //           additionalInfo,
-  //           profileImage,
-  //           createdAt,
-  //           updatedAt,
-  //         } = response.data;
-  //         const birthdayFormatted = this.convertDateFormat(
-  //           response.data.birthday
-  //         );
-  //         this.updateForm.patchValue({
-  //           inputUserName: userName,
-  //           inputFirstName: firstName,
-  //           inputLastName: lastName,
-  //           inputOrganizationName: organizationName,
-  //           inputEmailAddress: emailAddress,
-  //           inputPhoneNumber: phoneNumber,
-  //           inputBirthday: birthdayFormatted,
-  //           inputRole: role,
-  //           inputIdentification: identification,
-  //           inputAdditionalInfo: additionalInfo,
-  //           inputProfileImage: profileImage,
-  //           inputCreatedAt: createdAt,
-  //           inputUpdatedAt: updatedAt,
-  //           inputAddress: {
-  //             street1: address.street1,
-  //             street2: address.street2,
-  //             city: address.city,
-  //             state: address.state,
-  //             zip: address.zip,
-  //             country: address.country,
-  //           },
-  //         });
-  //         this.get_states();
-  //         console.log(
-  //           '🚀 ~ ProfileComponent ~ get_states ~ this.user.address:',
-  //           this.user
-  //         );
-  //       }
-  //     },
-  //     (error) => {
-  //       // Añade el tipo aquí si es necesario, por ejemplo (error: any)
-  //       console.error(error);
-  //     }
-  //   );
-  // }
-
-  // get_country() {
-  //   this._geoInfoService.get_Countries().subscribe((response) => {
-  //     response.forEach((element: any) => {
-  //       this.countries.push({
-  //         country_id: element.id,
-  //         country_name: element.name,
-  //         country_abbrev: element.iso2,
-  //         country_phone_code: element.prefix,
-  //         country_divGeo: element.divGeo,
-  //       });
-  //     });
-  //     // Sort the countries array by country_name property
-  //     this.sortByProperty(this.countries, 'country_name');
-  //   });
-  // }
-
-  // get_states() {
-  //   // Verificar si el país está definido
-  //   if (!this.user || !this.user.address || !this.user.address.country) {
-  //     console.warn('País del usuario no definido.');
-  //     return;
-  //   }
-  //   this._geoInfoService.get_States().subscribe((response) => {
-  //     this.states = [];
-
-  //     response.forEach((element: any) => {
-  //       if (element.country_id == this.user.address.country) {
-  //         this.states.push({
-  //           country_id: element.country_id,
-  //           province_abbrev: element.province_abbrev,
-  //           province_name: element.province_name,
-  //         });
-  //       }
-  //     });
-
-  //     this.states.sort((a, b) =>
-  //       a.province_name.localeCompare(b.province_name)
-  //     );
-  //   });
-  // }
-
-  // onCountryChange() {}
-
-  // private convertDateFormat(dateString: string): string {
-  //   const date = new Date(dateString);
-  //   const year = date.getFullYear();
-  //   const month = String(date.getMonth() + 1).padStart(2, '0');
-  //   const day = String(date.getDate()).padStart(2, '0');
-  //   return `${year}-${month}-${day}`;
-  // }
-
-  private validateDate(control: FormControl): { [key: string]: any } | null {
-    const inputDateStr: string = control.value;
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(inputDateStr)) {
-      return { invalidDateFormat: true };
+  private validateAndUpdateImg(file: File) {
+    if (!this.imageUrl && !file) {
+      this.updateForm.get('inputProfileImage')!.setErrors({ required: true });
+      return;
     }
+    if (file) {
+      const errors = this.validateFileUpdate(file);
+      if (errors) {
+        this.updateForm.get('inputProfileImage')!.setErrors(errors);
+      }
+    }
+  }
+
+  private validateFileUpdate(file: File): { [key: string]: any } | null {
+    if (file) {
+      const validTypes = ['image/png', 'image/webp', 'image/jpg', 'image/gif', 'image/jpeg'];
+      if (validTypes.includes(file.type)) {
+        if (file.size <= 4000000) {
+          let reader = new FileReader();
+          reader.readAsDataURL(file);
+
+          reader.onload = () => {
+            if (reader.result !== null) {
+              this.imageUrl = reader.result as string;
+              this.updateForm.patchValue({
+                file: reader.result
+              });
+            }
+          }
+          return null;
+        } else {
+          console.error('error', 'The image cannot exceed 4 mb');
+          this._toastService.showToast('error', 'The image cannot exceed 4 mb');
+          return { invalidFileSize: true };
+        }
+      } else {
+        console.error('The file must be a PNG, WEBP, JPG, GIF, or JPEG image.');
+        this._toastService.showToast('error', 'The file must be a PNG, WEBP, JPG, GIF, or JPEG image.');
+        return { invalidFileType: true };
+      }
+    }
+
     return null;
   }
 
-  // sortByProperty(arr: any[], property: string) {
-  //   return arr.sort((a, b) => a[property].localeCompare(b[property]));
-  // }
+  triggerFileInput(): void {
+    this._renderer.selectRootElement(this.fileInput.nativeElement).click();
+  }
 
   update() {
-    this.submitted = true;
+    if (this.updateForm.invalid) {
+      for (const control of Object.keys(this.updateForm.controls)) {
+        this.updateForm.controls[control].markAsTouched();
+      }
+      this.load_btn = false;
+      this._toastService.showToast('error', 'There are errors on the form. Please check the fields.');
+      return;
+    }
+
+    const formValue = this.updateForm.value;
+    // console.info('userName:', formValue.inputUserName);
+    // console.info('firstName:', formValue.inputFirstName);
+    // console.info('lastName:', formValue.inputLastName);
+    // console.info('organizationName:', formValue.inputOrganizationName);
+    // console.info('emailAddress:', formValue.inputEmailAddress);
+    // console.info('countryAddress:', formValue.inputCountryAddress);
+    // console.info('stateAddress:', formValue.inputStateAddress);
+    // console.info('phoneNumber:', formValue.inputPhoneNumber);
+    // console.info('birthday:', formValue.inputBirthday);
+    // console.info('role:', formValue.inputRole);
+    // console.info('identification:', formValue.inputIdentification);
+    // console.info('additionalInfo:', formValue.inputAdditionalInfo);
+    // console.info('file:', this.selectedFile);
+
+    const data: any = {};
+    if (this.selectedFile) {
+      data.profileImage = this.selectedFile;
+    }
+    data._id = this.userId;
+    data.userName = this.userName;
+    data.role = this.userRole;
+    data.identification = this.userIdentification;
+    data.firstName = formValue.inputFirstName;
+    data.lastName = formValue.inputLastName;
+    data.organizationName = formValue.inputOrganizationName;
+    data.emailAddress = formValue.inputEmailAddress;
+    data.countryAddress = formValue.inputCountryAddress;
+    data.stateAddress = formValue.inputStateAddress;
+    data.phoneNumber = formValue.inputPhoneNumber;
+    data.birthday = formValue.inputBirthday;
+    data.additionalInfo = formValue.inputAdditionalInfo;
+
+
+
+    // this.load_btn = true;
+    // this._authService.update_admin(data).subscribe(
+    //   response => {
+    //     this._toastService.showToast('success', 'New profile data has been successfully updated..');
+    //     this.load_btn = false;
+    //   },
+    //   error => {
+    //     if (error.status === 404 && error.error.message === 'Admin exists.') {
+    //       this._toastService.showToast('error', 'There is already another user associated with that name in the database');
+    //     } else {
+    //       this._toastService.showToast('error', 'Update failed');
+    //     }
+    //     this.load_btn = false;
+    //   }
+    // );
   }
+
 }

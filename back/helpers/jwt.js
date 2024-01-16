@@ -21,7 +21,7 @@ exports.createToken = function (user) {
         userName:user.userName,
         firstName: user.firstName,
         lastName: user.lastName,
-        email: user.email,
+        emailAddress: user.emailAddress,
         role: user.role,
         iat: moment().unix(),
         exp: moment().add(1, "days").unix(),
@@ -29,21 +29,3 @@ exports.createToken = function (user) {
 
     return jwt.encode(payload, secret);
 };
-
-// "use strict";
-// var jwt = require("jwt-simple");
-// var moment = require("moment");
-// var secret = "javierbarreto";
-
-// exports.createToken = function (user) {
-//     var payload = {
-//         sub: user._id,
-//         firstName: user.firstName,
-//         lastName: user.lastName,
-//         email: user.email,
-//         role: user.role,
-//         iat: moment().unix(),
-//         exp: moment().add(1, "days").unix(),
-//     };
-//     return jwt.encode(payload, secret);
-// };

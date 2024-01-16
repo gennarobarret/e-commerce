@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { UIBootstrapService } from './core/services/uibootstrap.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'admin';
+
+  constructor(public uiBootstrapService: UIBootstrapService) { }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    this.uiBootstrapService.showScrollTopButton();
+  }
 }

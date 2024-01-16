@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { ToastService } from 'src/app/shared/services/toast.service';
-import { LoginCredentials } from 'src/app/core/model';
+import { LoginCredentials } from 'src/app/core/models';
 
 @Component({
   selector: 'app-login',
@@ -26,13 +26,13 @@ export class LoginComponent implements OnInit {
       userName: ['', [Validators.required]],
       password: ['', Validators.required],
     });
-    
+
   }
 
   get f() {
     return this.loginForm.controls;
   }
-  
+
   ngOnInit(): void {
     if (this.authService.getToken()) {
       this.router.navigate(['']);
@@ -55,14 +55,14 @@ export class LoginComponent implements OnInit {
             this.toastService.showToast('error', errorMessage);
           }
         );
-        this.handleSuccessfulLogin();
-  
+      this.handleSuccessfulLogin();
+
     } else {
       this.toastService.showToast('error', 'Missing form data');
     }
   }
 
-  private handleSuccessfulLogin(){
+  private handleSuccessfulLogin() {
     this.authService.loginSuccessObservable.subscribe((success: boolean) => {
       if (success) {
         this.toastService.showToast(

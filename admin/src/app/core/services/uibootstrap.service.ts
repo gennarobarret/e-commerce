@@ -86,6 +86,21 @@ export class UIBootstrapService {
       targetAnchor.classList.add('active');
     });
   } 
+
+  showScrollTopButton(): void {
+    const btnScrollTop = document.getElementById('btnScrollTop');
+    if (btnScrollTop) {
+      if (window.pageYOffset > 200) {
+        btnScrollTop.style.display = 'block';
+      } else {
+        btnScrollTop.style.display = 'none';
+      }
+    }
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   
 }
 
