@@ -23,8 +23,6 @@ mongoose.connect(process.env.MONGODB_URI)
         console.error('** Database Connection Failed:', + error + '**');
     });
 
-
-
 // Parse incoming JSON objects
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json({ limit: '50mb', extended: true }));

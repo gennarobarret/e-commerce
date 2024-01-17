@@ -1,9 +1,10 @@
 "use strict";
 
 const express = require("express");
-const authController = require("../controllers/AuthControllers");
+const AuthController = require("../controllers/AuthControllers");
+const { loginLimiter } = require('../middlewares/rateLimit');
 const api = express.Router();
 
-api.post("/loginUser", authController.loginUser);
+api.post("/loginUser", loginLimiter, AuthController.loginUser);
 
 module.exports = api;
