@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/core/auth/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from "@angular/router";
 import { UIBootstrapService } from 'src/app/core/services/uibootstrap.service';
-
+import { UserManagementService } from "src/app/core/services/user-management.service";
 
 @Component({
   selector: 'app-header',
@@ -17,15 +17,17 @@ export class HeaderComponent implements OnInit {
   constructor(
     private _authService: AuthService,
     private _router: Router,
-    private _uiBootstrapService: UIBootstrapService) { }
+    private _uiBootstrapService: UIBootstrapService,
+    private _userManagementService: UserManagementService
+  ) { }
 
   ngOnInit(): void {
     this.fetchUserData();
-  
+
   }
 
   fetchUserData() {
-    this._authService.get_admin().subscribe(
+    this._userManagementService.getUser().subscribe(
       response => {
         this.user = response;
         this._uiBootstrapService.activateFeatherIcons();
@@ -45,14 +47,3 @@ export class HeaderComponent implements OnInit {
   }
 
 }
-
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-header',
-//   templateUrl: './header.component.html',
-//   styleUrls: ['./header.component.css']
-// })
-// export class HeaderComponent {
-
-// }

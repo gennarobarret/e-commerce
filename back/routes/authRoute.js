@@ -6,5 +6,6 @@ const { loginLimiter } = require('../middlewares/rateLimit');
 const api = express.Router();
 
 api.post("/loginUser", loginLimiter, AuthController.loginUser);
+api.post("/forgotPassword", AuthController.forgotPassword);
 
 module.exports = api;

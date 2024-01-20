@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require("express");
-const userManagement = require("../controllers/UserController");
+const userManagement = require("../controllers/UserManagementController");
 const auth = require("../middlewares/authenticate");
 const rbac = require('../middlewares/rbacMiddleware');
 const multiparty = require("connect-multiparty");

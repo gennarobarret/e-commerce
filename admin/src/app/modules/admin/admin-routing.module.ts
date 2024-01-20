@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './dashboards/admin-dashboard/admin-dashboard.component';
-import { UserDashboardComponent } from './dashboards/user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
   {

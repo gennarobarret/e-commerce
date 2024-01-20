@@ -4,6 +4,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
+const crypto = require('crypto');
 
 var UserSchema = new Schema({
     userName: {
@@ -101,7 +102,9 @@ var UserSchema = new Schema({
     },
     lockUntil: {
         type: Number
-    }
+    },
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
 }, { timestamps: true });
 
 UserSchema.virtual('isBlocked').get(function () {
@@ -114,6 +117,14 @@ UserSchema.pre("save", async function (next) {
     }
     next();
 });
+
+// Método para generar token de restablecimiento de contraseña
+UserSchema.methods.generatePasswordResetToken = function () {
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    this.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+    this.resetPasswordExpires = Date.now() + 3600000; // 1 hora
+    return resetToken;
+};
 
 module.exports = mongoose.model("user", UserSchema);
 

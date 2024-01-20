@@ -1,8 +1,23 @@
-import { Role } from './roles.type';
+import { UserRole } from './roles.type';
 
 export interface User {
-  email: string;
-  role: Role;
+  _id: string;
+  userName: string;
+  firstName: string;
+  lastName: string;
+  organizationName?: string;
+  countryAddress: string;
+  stateAddress: string;
+  emailAddress: string;
+  phoneNumber?: string;  
+  birthday?: Date; 
+  role: UserRole;
+  groups?: string[];
+  identification?: string;
+  additionalInfo?: string;
+  profileImage?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface UserWithToken extends User {

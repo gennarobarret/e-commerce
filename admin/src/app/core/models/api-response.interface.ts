@@ -1,4 +1,7 @@
-export interface ApiResponse {
-    data?: any;
-    token?: string;
-  }  
+
+// Respuesta genérica del API
+export interface ApiResponse<T> {
+  status: string;
+  message: string;
+  data: T;
+}

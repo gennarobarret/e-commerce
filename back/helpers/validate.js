@@ -51,7 +51,7 @@ const validateLogin = (data) => {
         userName: Joi.string()
             .alphanum()
             .min(1)
-            .max(15)
+            .max(20)
             .trim()
             .required(),
         password: Joi.string()

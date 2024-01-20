@@ -1,14 +1,404 @@
-{"level":"error","message":"controller error: Password must be at least 8 characters, including numbers, uppercase, lowercase, and special characters.","stack":"Error: Password must be at least 8 characters, including numbers, uppercase, lowercase, and special characters.\n    at createMasterAdmin (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\InitialConfigController.js:39:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":400}
+
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
 {"level":"info","message":"Login attempt for userName:"}
 {"level":"info","message":"User found. Comparing passwords..."}
 {"level":"info","message":"Password match. Logging in..."}
 {"level":"info","message":"Login attempt for userName:"}
 {"level":"info","message":"User found. Comparing passwords..."}
-{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:61:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Password match. Logging in..."}
 {"level":"info","message":"Login attempt for userName:"}
 {"level":"info","message":"User found. Comparing passwords..."}
 {"level":"info","message":"Password match. Logging in..."}
-{"level":"error","message":"controller error: \"userName\" must only contain alpha-numeric characters","stack":"Error: \"userName\" must only contain alpha-numeric characters\n    at createMasterAdmin (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\InitialConfigController.js:39:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":400}
-{"level":"error","message":"controller error: \"userName\" must only contain alpha-numeric characters","stack":"Error: \"userName\" must only contain alpha-numeric characters\n    at createMasterAdmin (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\InitialConfigController.js:39:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":400}
-{"level":"error","message":"controller error: \"userName\" must only contain alpha-numeric characters","stack":"Error: \"userName\" must only contain alpha-numeric characters\n    at createMasterAdmin (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\InitialConfigController.js:39:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":400}
-{"level":"error","message":"controller error: \"userName\" must only contain alpha-numeric characters","stack":"Error: \"userName\" must only contain alpha-numeric characters\n    at createMasterAdmin (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\InitialConfigController.js:39:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":400}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:64:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:66:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:105:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:105:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:105:19)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:97:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:97:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"Server error: res.status(...).sent is not a function","stack":"TypeError: res.status(...).sent is not a function\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:99:29)"}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:32:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:32:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:32:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:32:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:32:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:32:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}

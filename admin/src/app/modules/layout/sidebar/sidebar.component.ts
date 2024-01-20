@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/core/auth/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { UIBootstrapService } from 'src/app/core/services/uibootstrap.service';
+import { UserManagementService } from "src/app/core/services/user-management.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -11,9 +12,11 @@ export class SidebarComponent implements OnInit {
   public user: any = { data: {} };
 
   constructor(
-    private _authService: AuthService, 
-    private _uiBootstrapService: UIBootstrapService
-    ) { }
+    private _authService: AuthService,
+    private _uiBootstrapService: UIBootstrapService,
+    private _userManagementService: UserManagementService
+
+  ) { }
 
   ngOnInit(): void {
     this._uiBootstrapService.closeSideNavigationOnWidthChange();
@@ -23,13 +26,13 @@ export class SidebarComponent implements OnInit {
   }
 
   fetchUserData() {
-    this._authService.get_admin().subscribe(
+    this._userManagementService.getUser().subscribe(
       response => {
         this.user = response;
       },
       error => {
         console.error(error);
-        
+
       }
     );
   }

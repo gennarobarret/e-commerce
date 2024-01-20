@@ -1,1 +1,1 @@
-export type Role = 'Orders' | 'Inventory' | 'Accounting' | 'Manager';
+export type UserRole = 'MasterAdministrator' | 'Administrator' | 'Registered' | 'Editor' | 'Guest';

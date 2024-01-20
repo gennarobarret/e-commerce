@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/auth/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { ToastService } from 'src/app/shared/services/toast.service';
 import { LoginCredentials } from 'src/app/core/models';
 
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     if (this.loginForm.valid) {
       this.authService
-        .login_admin(this.loginForm.value as LoginCredentials)
+        .loginUser(this.loginForm.value as LoginCredentials)
         .subscribe(
           (response) => {
           },
@@ -73,93 +73,4 @@ export class LoginComponent implements OnInit {
     });
   }
 
-
-
 }
-
-
-
-
-// import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-//  import { Router } from '@angular/router';
-// import { AuthService } from 'src/app/core/auth/auth.service';
-// import { ToastService } from 'src/app/shared/services/toast.service';
-// import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-// import { catchError, finalize } from 'rxjs/operators';
-// import { throwError } from 'rxjs';
-
-// interface ApiResponse {
-//   data?: any;
-//   token?: string;
-// }
-
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css'],
-//   changeDetection: ChangeDetectionStrategy.OnPush
-// })
-// export class LoginComponent implements OnInit {
-//   public user: any = {};
-//   public token: any = '';
-//   public loginForm: FormGroup;
-
-//   constructor(
-//     private formBuilder: FormBuilder,
-//     private _authService: AuthService,
-//     private _router: Router,
-//     private _toastService: ToastService
-//   ) {
-//     this.token = this._authService.getToken();
-//     this.loginForm = this.formBuilder.group({
-//       userName: ['', [Validators.required, Validators.userName]],
-//       password: ['', Validators.required],
-//     });
-//   }
-
-//   ngOnInit(): void {
-//     if (this.token) {
-//       this._router.navigate(['']);
-//     }
-//   }
-
-//   login() {
-//     if (this.loginForm.valid) {
-//       const { userName, password } = this.loginForm.value;
-//       const data = { userName, password };
-//       this._authService.login_admin(data).subscribe(
-//         (response: ApiResponse) => {
-//           if (!response.data) {
-//             this._toastService.showToast('error', 'There was an error during login');
-//           } else {
-//             this.handleSuccessfulLogin(response);
-//           }
-//         },
-//         (error) => {
-//           this._toastService.showToast('error', 'There was an error during login');
-//           console.error(error);
-//         }
-//       );
-//     } else {
-//       this._toastService.showToast('error', 'Invalid form data');
-//     }
-//   }
-
-//   private handleSuccessfulLogin(response: ApiResponse) {
-//     this.user = response.data;
-//     localStorage.setItem('token', response.token || '');
-//     this._router.navigate(['/']);
-//   }
-
-// }
-
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css']
-// })
-// export class LoginComponent {
-
-// }

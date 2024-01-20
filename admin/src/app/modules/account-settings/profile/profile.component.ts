@@ -5,9 +5,9 @@ import {
   Validators
 } from "@angular/forms";
 import { Router } from "@angular/router";
-import { AuthService } from "src/app/core/auth/auth.service";
+import { AuthService } from "src/app/core/services/auth.service";
 import { ToastService } from "src/app/shared/services/toast.service";
-import { ProfileData } from "src/app/core/models/profile-data.interface";
+import { User } from "src/app/core/models/user.interface";
 import { GeoInfoService } from "src/app/shared/services/geo-info.service";
 
 import { DateService } from "src/app/shared/services/date.service";
@@ -16,6 +16,7 @@ import { Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Country } from "src/app/core/models/country.model";
 import { State } from "src/app/core/models/state.model";
+import { UserManagementService } from "src/app/core/services/user-management.service";
 
 @Component({
   selector: "app-profile",
@@ -26,7 +27,7 @@ export class ProfileComponent {
   @ViewChild('fileInput') fileInput!: ElementRef;
 
   updateForm!: FormGroup;
-  user: ProfileData | null = null;
+  user: User | null = null;
   countries: Country[] = [];
   states: State[] = [];
   filteredStates: State[] = [];
@@ -42,13 +43,14 @@ export class ProfileComponent {
   private subscriptions = new Subscription();
 
   constructor(
-    private _formBuilder: FormBuilder,
-    private _authService: AuthService,
     private _router: Router,
+    private _formBuilder: FormBuilder,
+    private _renderer: Renderer2,
+    private _authService: AuthService,
     private _toastService: ToastService,
     private _geoInfoService: GeoInfoService,
     private _dataService: DateService,
-    private _renderer: Renderer2
+    private _userManagementService: UserManagementService
   ) {
     this.updateForm = this._formBuilder.group({
       inputUserName: [
@@ -122,17 +124,16 @@ export class ProfileComponent {
 
   private initUpdateForm() {
     this.updateForm = this._formBuilder.group({
-
     });
   }
 
   fetchUserData() {
-    this._authService.get_admin().subscribe(
+    this._userManagementService.getUser().subscribe(
       response => {
         if (response.data === undefined) {
           this._router.navigate([""]);
         } else {
-          this.user = response.data as ProfileData;
+          this.user = response.data as User;
           if (!this.user._id) {
             console.error('Error: _id is missing from the user data');
             return;
@@ -140,7 +141,7 @@ export class ProfileComponent {
           this.userId = this.user._id;
           this.userName = this.user.userName;
           this.userRole = this.user.role;
-          this.userIdentification = this.user.identification;
+          this.userIdentification = this.user.identification || '';
           this.updateFormWithUserData(this.user);
           this.filterStatesByCountry(this.user.countryAddress);
         }
@@ -151,10 +152,17 @@ export class ProfileComponent {
     );
   }
 
-  private updateFormWithUserData(userData: ProfileData) {
-    const birthdayFormatted = this._dataService.convertDateFormat(
-      userData.birthday
-    );
+  private updateFormWithUserData(userData: User) {
+    let formattedBirthday = '';
+    if (userData.birthday) {
+      const birthdayDate = new Date(userData.birthday);
+      if (!isNaN(birthdayDate.getTime())) {
+        // Convierte la fecha a formato ISO y luego extrae solo la parte de la fecha
+        formattedBirthday = birthdayDate.toISOString().split('T')[0];
+      }
+    }
+
+
     this.imageUrl = this.url + 'get_picture_profile/' + userData.profileImage;
     this.updateForm.patchValue({
       inputUserName: userData.userName,
@@ -165,7 +173,7 @@ export class ProfileComponent {
       inputStateAddress: userData.stateAddress,
       inputEmailAddress: userData.emailAddress,
       inputPhoneNumber: userData.phoneNumber,
-      inputBirthday: birthdayFormatted,
+      inputBirthday: formattedBirthday,
       inputRole: userData.role,
       inputIdentification: userData.identification,
       inputAdditionalInfo: userData.additionalInfo,
@@ -230,7 +238,6 @@ export class ProfileComponent {
       this.validateAndUpdateImg(this.selectedFile);
     }
   }
-
 
   private validateAndUpdateImg(file: File) {
     if (!this.imageUrl && !file) {
