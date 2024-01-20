@@ -2,14 +2,13 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { initialConfigGuard } from './core/guards/initial-config.guard';
 
 const routes: Routes = [
   {
     path: 'initial-config',
     loadChildren: () =>
       import('./modules/initial-config/initial-config.module').then((m) => m.InitialConfigModule)
-    , canActivate: [initialConfigGuard]}, 
+  },
   {
     path: 'auth',
     loadChildren: () =>

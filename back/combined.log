@@ -402,3 +402,10 @@
 {"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:32:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
 {"level":"info","message":"Login attempt for userName:"}
 {"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:32:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"error","message":"controller error: MasterAdmin already exists. Initial setup already completed.","stack":"Error: MasterAdmin already exists. Initial setup already completed.\n    at createMasterAdmin (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\InitialConfigController.js:34:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":400}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
