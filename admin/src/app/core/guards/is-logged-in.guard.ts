@@ -27,39 +27,3 @@ export class isLoggedInGuard implements CanActivate {
     }
   }
 }
-
-// import { Injectable } from '@angular/core';
-// import { CanActivate, Router } from '@angular/router';
-// import { Observable, of } from 'rxjs';
-// import { switchMap } from 'rxjs/operators';
-// import { AuthService } from '../services/auth.service';
-// import { InitialConfigService } from '../services/initial-config.service';
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class isLoggedInGuard implements CanActivate {
-//   constructor(
-//     private authService: AuthService,
-//     private initialConfigService: InitialConfigService,
-//     private router: Router
-//   ) { }
-
-//   canActivate(): Observable<boolean> {
-//     return this.initialConfigService.InitialCheck().pipe(
-//       switchMap(response => {
-//         if (!response.setupRequired) {
-//           this.router.navigate(['/initial-config']);
-//           return of(false);
-//         } else {
-//           if (this.authService.isAuthenticated(['MasterAdministrator'])) {
-//             return of(true);
-//           } else {
-//             this.router.navigate(['/auth/login']);
-//             return of(false);
-//           }
-//         }
-//       })
-//     );
-//   }
-// }

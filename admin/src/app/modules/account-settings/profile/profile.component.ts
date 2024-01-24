@@ -10,7 +10,7 @@ import { ToastService } from "src/app/shared/services/toast.service";
 import { User } from "src/app/core/models/user.interface";
 import { GeoInfoService } from "src/app/shared/services/geo-info.service";
 
-import { DateService } from "src/app/shared/services/date.service";
+import { ValidationService } from "src/app/core/services/validation.service";
 import { GLOBAL } from "src/app/core/config/GLOBAL";
 import { Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -27,6 +27,7 @@ export class ProfileComponent {
   @ViewChild('fileInput') fileInput!: ElementRef;
 
   updateForm!: FormGroup;
+  url = GLOBAL.url;
   user: User | null = null;
   countries: Country[] = [];
   states: State[] = [];
@@ -35,7 +36,7 @@ export class ProfileComponent {
   load_btn: boolean = false;
   imageUrl: any | ArrayBuffer = 'assets/img/illustrations/profiles/profile-2.png';
   selectedFile: File | null = null;
-  url = GLOBAL.url;
+ 
   private userName: string = '';
   private userId: string = '';
   private userRole: string = '';
@@ -49,7 +50,7 @@ export class ProfileComponent {
     private _authService: AuthService,
     private _toastService: ToastService,
     private _geoInfoService: GeoInfoService,
-    private _dataService: DateService,
+    private _validationService: ValidationService,
     private _userManagementService: UserManagementService
   ) {
     this.updateForm = this._formBuilder.group({
@@ -93,7 +94,7 @@ export class ProfileComponent {
       ],
       inputBirthday: [
         "",
-        [Validators.required, this._dataService.validateDate.bind(this)]
+        [Validators.required, this._validationService.validateDate.bind(this)]
       ],
       inputRole: [{ value: "", disabled: true }, [Validators.required]],
       inputIdentification: [

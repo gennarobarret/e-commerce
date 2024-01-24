@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { LoginCredentials } from 'src/app/core/models';
 import { GLOBAL } from '../config/GLOBAL';
 import { Observable, throwError, Subject, EMPTY } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
-
 
 @Injectable({
   providedIn: 'root'

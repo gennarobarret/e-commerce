@@ -10,6 +10,7 @@ import { InitialConfigService } from './services/initial-config.service';
 import { AuthService } from './services/auth.service';
 import { UserManagementService } from './services/user-management.service';
 import { UIBootstrapService } from './services/uibootstrap.service';
+import { ValidationService } from './services/validation.service';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthTokenInterceptor } from '../interceptors/auth-token.interceptor';
@@ -27,8 +28,9 @@ import { AuthTokenInterceptor } from '../interceptors/auth-token.interceptor';
   ],
   providers: [
     InitialConfigService,
-    AuthService,
     UIBootstrapService,
+    AuthService,
+    ValidationService,
     UserManagementService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },
     // Otros servicios, guardas e interceptores
@@ -41,17 +43,3 @@ export class CoreModule {
     }
   }
 }
-
-// import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-
-
-
-// @NgModule({
-//   declarations: [],
-//   imports: [
-//     CommonModule
-//   ]
-// })
-// export class CoreModule { }
-

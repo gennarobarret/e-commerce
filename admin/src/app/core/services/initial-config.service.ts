@@ -14,19 +14,26 @@ export class InitialConfigService {
   private url: string = GLOBAL.url;
   constructor(private _http: HttpClient, private _router: Router) { }
 
-  InitialCheck(): Observable<{ setupRequired: boolean }> {
-    return this._http.get<{ status: string, message: string, data: { setupRequired: boolean } }>(`${this.url}/InitialCheck`)
+  InitialCheck(): Observable<{ setupRequired: boolean, verificationRequired: boolean }> {
+    return this._http.get<{ status: string, message: string, data: { setupRequired: boolean, verificationRequired: boolean } }>(`${this.url}/InitialCheck`)
       .pipe(
         map(response => response.data),
         catchError(error => {
           console.error('Error en InitialCheck:', error);
-          return of({ setupRequired: false });
+          return of({ setupRequired: false, verificationRequired: false });
         })
       );
   }
-
   createMasterAdmin(data: any): Observable<any> {
     return this._http.post(`${this.url}createMasterAdmin`, data);
   }
+
+  activateAccount(token: string): Observable<any> {
+    const url = `${this.url}/activateMasterAdmin`;
+    const body = { token };
+    console.log("🚀 ~ InitialConfigService ~ activateAccount ~ body:", body)
+    return this._http.post(url, body);
+  }
+
 
 }

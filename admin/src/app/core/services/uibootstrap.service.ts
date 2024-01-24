@@ -103,13 +103,3 @@ export class UIBootstrapService {
   }
   
 }
-
-// import { Injectable } from '@angular/core';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class UIBootstrapService {
-
-//   constructor() { }
-// }
