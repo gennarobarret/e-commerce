@@ -120,6 +120,14 @@ var UserSchema = new Schema({
     },
     resetPasswordToken: String,
     resetPasswordExpires: Date,
+    emailNotifications: {
+        accountChanges: { type: Boolean, default: false },
+        groupChanges: { type: Boolean, default: false },
+        productUpdates: { type: Boolean, default: false },
+        newProducts: { type: Boolean, default: false },
+        marketingOffers: { type: Boolean, default: false },
+        securityAlerts: { type: Boolean, default: false }
+    },
 }, { timestamps: true });
 
 UserSchema.methods.generateConfigurationToken = function () {

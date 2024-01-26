@@ -6,7 +6,6 @@ import { BillingDetailsComponent } from './billing-details/billing-details.compo
 import { PreferencesComponent } from './preferences/preferences.component';
 import { ReviewAndSubmitComponent } from './review-and-submit/review-and-submit.component';
 import { ActivationComponent } from './activation/activation.component';
-import { ActivationSuccessComponent } from './activation-success/activation-success.component';
 import { ResendEmailVerificationComponent } from './resend-email-verification/resend-email-verification.component';
 
 import { initialConfigGuard } from 'src/app/core/guards/initial-config.guard';
@@ -14,19 +13,18 @@ import { initialConfigGuard } from 'src/app/core/guards/initial-config.guard';
 const routes: Routes = [
   {
     path: '',
-    component: WrapperComponent,
+    component: WrapperComponent, canActivate: [initialConfigGuard],
     children: [
       { path: 'step1', component: AccountSetupComponent },
       { path: 'step2', component: BillingDetailsComponent },
       { path: 'step3', component: PreferencesComponent },
       { path: 'step4', component: ReviewAndSubmitComponent },
-      { path: 'activation/:token', component: ActivationComponent },
-      { path: 'activation-success', component: ActivationSuccessComponent },
       { path: 'resend-email-verification', component: ResendEmailVerificationComponent },
       { path: '', redirectTo: 'step1', pathMatch: 'full' }
     ],
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: 'activation/:token', component: ActivationComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

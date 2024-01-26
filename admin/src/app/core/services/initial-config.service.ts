@@ -29,10 +29,13 @@ export class InitialConfigService {
   }
 
   activateAccount(token: string): Observable<any> {
-    const url = `${this.url}/activateMasterAdmin`;
-    const body = { token };
-    console.log("🚀 ~ InitialConfigService ~ activateAccount ~ body:", body)
-    return this._http.post(url, body);
+    const url = `${this.url}/activation/${token}`;
+    return this._http.get(url).pipe(
+      catchError(error => {
+        console.error('Error activating account:', error);
+        return of(null);
+      })
+    );
   }
 
 

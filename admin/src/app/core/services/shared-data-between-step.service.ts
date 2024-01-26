@@ -10,8 +10,13 @@ export class SharedDataBetweenStepService {
     this.formData[step] = data;
     
   }
-
+  
   getStepData(step: string): any {
     return this.formData[step];
   }
+
+  getAllData(): any {
+    return this.formData;
+  }
+
 }

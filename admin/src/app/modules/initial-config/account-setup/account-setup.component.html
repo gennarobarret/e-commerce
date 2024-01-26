@@ -1,11 +1,11 @@
-Wizard tab pane item 1
+<!-- Wizard tab pane item 1 -->
 <div class="py-5 py-xl-10">
     <div class="row justify-content-center">
         <div class="col-xxl-6 col-xl-8">
             <h3 class="text-primary">Step 1</h3>
             <h5 class="card-title mb-4">Enter your account information</h5>
             <form [formGroup]="accountSetupForm" (ngSubmit)="goToNextStep()">
-                <!-- Form Group (username)-->
+                <!-- Form Group (username) -->
                 <div class="mb-3">
                     <label class="small mb-1" for="inputUserName">
                         Username (how your name will appear to other users on the site)
@@ -29,7 +29,7 @@ Wizard tab pane item 1
                         </span>
                     </div>
                 </div>
-                <!-- Form Row-->
+                <!-- Form Row -->
                 <div class="row gx-3 mb-3">
                     <!-- Form Group (first name)-->
                     <div class="col-md-6">
@@ -76,7 +76,7 @@ Wizard tab pane item 1
                         </div>
                     </div>
                 </div>
-                <!-- Form Row        -->
+                <!-- Form Row  -->
                 <div class="row gx-3 mb-3">
                     <!-- Form Group (organization name)-->
                     <div class="col-md-6">
@@ -103,7 +103,7 @@ Wizard tab pane item 1
                     <!-- Form Group (email address)-->
                     <div class="col-md-6">
                         <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                        <input class="form-control" id="inputEmailAddress" type="email"
+                        <input class="form-control" id="inputEmailAddress" type="email" autocomplete="email" 
                             placeholder="Enter your email address" formControlName="inputEmailAddress"
                             [ngClass]="{'is-invalid': accountSetupForm.get('inputEmailAddress')?.invalid && (accountSetupForm.get('inputEmailAddress')?.dirty || accountSetupForm.get('inputEmailAddress')?.touched)}" />
                         <div *ngIf="accountSetupForm.get('inputEmailAddress')?.invalid && (accountSetupForm.get('inputEmailAddress')?.dirty || accountSetupForm.get('inputEmailAddress')?.touched)"
@@ -249,7 +249,7 @@ Wizard tab pane item 1
                     <div class="col-md-6">
                         <label class="small mb-1" for="inputPassword">Password</label>
                         <input class="form-control" id="inputPassword" type="password" placeholder="Enter password"
-                            formControlName="inputPassword"
+                            formControlName="inputPassword" autocomplete="new-password" 
                             [ngClass]="{'is-invalid': accountSetupForm.get('inputPassword')?.invalid && (accountSetupForm.get('inputPassword')?.dirty || accountSetupForm.get('inputPassword')?.touched)}" />
                         <div *ngIf="accountSetupForm.get('inputPassword')?.invalid && (accountSetupForm.get('inputPassword')?.dirty || accountSetupForm.get('inputPassword')?.touched)"
                             class="text-danger">
@@ -270,7 +270,7 @@ Wizard tab pane item 1
                     <!-- Form Group (Confirm Password)-->
                     <div class="col-md-6">
                         <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                        <input class="form-control" id="inputConfirmPassword" type="password"
+                        <input class="form-control" id="inputConfirmPassword" type="password" autocomplete="new-password" 
                             placeholder="Confirm password" formControlName="inputConfirmPassword"
                             [ngClass]="{'is-invalid': accountSetupForm.get('inputConfirmPassword')?.invalid && (accountSetupForm.get('inputConfirmPassword')?.dirty || accountSetupForm.get('inputConfirmPassword')?.touched)}" />
                         <div *ngIf="accountSetupForm.get('inputConfirmPassword')?.invalid && (accountSetupForm.get('inputConfirmPassword')?.dirty || accountSetupForm.get('inputConfirmPassword')?.touched)"

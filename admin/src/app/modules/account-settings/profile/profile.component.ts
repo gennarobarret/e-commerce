@@ -158,7 +158,6 @@ export class ProfileComponent {
     if (userData.birthday) {
       const birthdayDate = new Date(userData.birthday);
       if (!isNaN(birthdayDate.getTime())) {
-        // Convierte la fecha a formato ISO y luego extrae solo la parte de la fecha
         formattedBirthday = birthdayDate.toISOString().split('T')[0];
       }
     }

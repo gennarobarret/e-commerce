@@ -12,10 +12,8 @@ const handleControllerError = (error, res) => {
     if (!(error instanceof ErrorHandler)) {
         error = new ErrorHandler(500, error.message || "Server error");
     }
-
     handleError(error, res);
 };
-
 
 // INITIAL CHECK
 const InitialCheck = async (req, res) => {
@@ -40,8 +38,7 @@ const InitialCheck = async (req, res) => {
         handleControllerError(error, res);
     }
 };
-
-
+// SIGNUP MASTER ADMINISTRATOR
 const createMasterAdmin = async (req, res) => {
     try {
         // Validar datos de entrada
@@ -55,13 +52,13 @@ const createMasterAdmin = async (req, res) => {
         if (masterAdminExists) {
             throw new ErrorHandler(400, "A Master Administrator is already registered.");
         }
-        const hashedPassword = await bcrypt.hash(password, 10);
+        // const hashedPassword = await bcrypt.hash(password, 10);
         const masterAdmin = new User({
             masterAdminName,
             firstName,
             lastName,
             emailAddress,
-            password: hashedPassword,
+            password,
             role: 'MasterAdministrator',
             ...otherFields
         });
@@ -90,10 +87,10 @@ const createMasterAdmin = async (req, res) => {
         handleControllerError(error, res);
     }
 };
-
+// ACTIVATE MASTER ADMINISTRATOR ACCOUNT
 const activateMasterAdmin = async (req, res) => {
     try {
-        const { token } = req.body;
+        const { token } = req.params;
         const masterAdmin = await User.findOne({
             configurationToken: token,
             configurationTokenExpires: { $gt: Date.now() }

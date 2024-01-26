@@ -6,7 +6,7 @@ const api = express.Router();
 
 api.get("/InitialCheck", InitialConfigController.InitialCheck);
 api.post("/createMasterAdmin", InitialConfigController.createMasterAdmin);
-api.post("/activateMasterAdmin", InitialConfigController.activateMasterAdmin);
+api.get('/activation/:token', InitialConfigController.activateMasterAdmin);
 
 
 module.exports = api;
