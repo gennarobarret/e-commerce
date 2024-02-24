@@ -6,6 +6,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { ToastService } from 'src/app/shared/services/toast.service';
 import { LoginCredentials } from 'src/app/core/models';
 
+declare var google: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,8 +22,9 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private toastService: ToastService
+    private toastService: ToastService,
   ) {
+
     this.loginForm = this.formBuilder.group({
       userName: ['', [Validators.required]],
       password: ['', Validators.required],
@@ -36,6 +39,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.authService.getToken()) {
       this.router.navigate(['']);
+
     }
   }
 

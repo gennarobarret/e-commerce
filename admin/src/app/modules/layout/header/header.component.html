@@ -164,12 +164,21 @@
             <div *ngIf="user && user.data">
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage"
                     href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false"><img class="img-fluid"
-                        src="assets/img/illustrations/profiles/profile-1.png" /></a>
+                    aria-expanded="false">
+                    <img *ngIf="user.data.profileImage; else defaultImage" class="img-fluid"
+                        src="{{ user.data.profileImage }}" />
+                    <ng-template #defaultImage>
+                        <img class="img-fluid" src="assets/img/illustrations/profiles/profile-1.png" />
+                    </ng-template>
+                </a>
                 <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
                     aria-labelledby="navbarDropdownUserImage">
                     <h6 class="dropdown-header d-flex align-items-center">
-                        <img class="dropdown-user-img" src="/assets/img/illustrations/profiles/profile-1.png" />
+                        <img *ngIf="user.data.profileImage; else defaultHeaderImage" class="dropdown-user-img"
+                            src="{{ user.data.profileImage }}" />
+                        <ng-template #defaultHeaderImage>
+                            <img class="dropdown-user-img" src="assets/img/illustrations/profiles/profile-1.png" />
+                        </ng-template>
                         <div class="dropdown-user-details">
                             <div class="dropdown-user-details-name">{{ user.data.lastName }}, {{ user.data.firstName }}
                             </div>
@@ -183,11 +192,11 @@
                     </a>
                     <a class="dropdown-item" (click)="logout()">
                         <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
-                        Logout
+                        Logout Local
                     </a>
-
                 </div>
             </div>
         </li>
+
     </ul>
 </nav>

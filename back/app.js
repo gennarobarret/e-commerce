@@ -8,9 +8,10 @@ const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 4201;
 
+const initialConfig_route = require('./routes/initialConfigRoute');
 const auth_route = require('./routes/authRoute');
 const user_route = require('./routes/userRoute');
-const initialConfig_route = require('./routes/initialConfigRoute');
+const businessConfig_route = require('./routes/businessConfigRouter');
 
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -40,8 +41,9 @@ app.use((req, res, next) => {
 });
 
 // Initialize routes
-app.use('/api', initialConfig_route);
 app.use('/api', auth_route);
+app.use('/api', initialConfig_route);
+app.use('/api', businessConfig_route);
 app.use('/api', user_route);
 
 

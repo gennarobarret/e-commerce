@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { GLOBAL } from '../config/GLOBAL';
 import { Observable, catchError, map, of } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -24,19 +23,5 @@ export class InitialConfigService {
         })
       );
   }
-  createMasterAdmin(data: any): Observable<any> {
-    return this._http.post(`${this.url}createMasterAdmin`, data);
-  }
-
-  activateAccount(token: string): Observable<any> {
-    const url = `${this.url}/activation/${token}`;
-    return this._http.get(url).pipe(
-      catchError(error => {
-        console.error('Error activating account:', error);
-        return of(null);
-      })
-    );
-  }
-
 
 }

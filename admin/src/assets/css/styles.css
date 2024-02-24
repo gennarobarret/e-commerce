@@ -21058,3 +21058,15 @@ pre[class*=language-] {
   font-size: 20px;
   color: white;
 }
+
+.spinner-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  /* Asegura que el spinner esté en la parte superior */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Agrega un fondo semi-transparente si lo deseas */
+  /* Añade cualquier otro estilo que desees para el contenedor */
+}

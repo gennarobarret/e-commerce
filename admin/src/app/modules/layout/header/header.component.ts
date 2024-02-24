@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from "@angular/router";
 import { UIBootstrapService } from 'src/app/core/services/uibootstrap.service';
@@ -18,12 +18,12 @@ export class HeaderComponent implements OnInit {
     private _authService: AuthService,
     private _router: Router,
     private _uiBootstrapService: UIBootstrapService,
-    private _userManagementService: UserManagementService
+    private _userManagementService: UserManagementService,
   ) { }
+
 
   ngOnInit(): void {
     this.fetchUserData();
-
   }
 
   fetchUserData() {
@@ -47,3 +47,4 @@ export class HeaderComponent implements OnInit {
   }
 
 }
+

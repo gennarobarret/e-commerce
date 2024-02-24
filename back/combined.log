@@ -1,12 +1,63 @@
-{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:57:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
-{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:59:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+
 {"level":"info","message":"Login attempt for userName:"}
 {"level":"info","message":"User found. Comparing passwords..."}
-{"level":"error","message":"user block error"}
-{"level":"error","message":"Server error: Account is temporarily locked. Try again later.","stack":"Error: Account is temporarily locked. Try again later.\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:37:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":403}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:69:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:69:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:69:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"error","message":"Server error: data and hash arguments required","stack":"Error: data and hash arguments required\n    at Object.compare (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\node_modules\\bcrypt\\bcrypt.js:208:17)\n    at C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\node_modules\\bcrypt\\promises.js:29:12\n    at new Promise (<anonymous>)\n    at module.exports.promise (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\node_modules\\bcrypt\\promises.js:20:12)\n    at Object.compare (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\node_modules\\bcrypt\\bcrypt.js:204:25)\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:53:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"}
+{"level":"error","message":"createMasterAdmin error: A Master Administrator is already registered.","stack":"Error: A Master Administrator is already registered.\n    at createMasterAdmin (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:236:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":400}
+{"level":"error","message":"controller error: A Master Administrator is already registered.","stack":"Error: A Master Administrator is already registered.\n    at createMasterAdmin (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:236:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":400}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:48:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:48:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
 {"level":"info","message":"Login attempt for userName:"}
 {"level":"info","message":"User found. Comparing passwords..."}
 {"level":"info","message":"Password match. Logging in..."}
 {"level":"info","message":"Login attempt for userName:"}
 {"level":"info","message":"User found. Comparing passwords..."}
 {"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:48:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:48:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:48:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"info","message":"User found. Comparing passwords..."}
+{"level":"info","message":"Password match. Logging in..."}
+{"level":"info","message":"Login attempt for userName:"}
+{"level":"error","message":"Server error: invalid credentials","stack":"Error: invalid credentials\n    at loginUser (C:\\Users\\Javier\\Documents\\proyectos\\e-commerce\\back\\controllers\\AuthControllers.js:48:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":401}
+{"level":"error","message":"The new password must be at least 8 characters long."}
+{"level":"error","message":"The new password must be at least 8 characters long."}
+{"level":"error","message":"The new password must be at least 8 characters long."}

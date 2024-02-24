@@ -1,7 +1,7 @@
 import { UserRole } from './roles.type';
 
 export interface User {
-  _id: string;
+  _id?: string;
   userName: string;
   firstName: string;
   lastName: string;
@@ -13,6 +13,7 @@ export interface User {
   birthday?: Date; 
   role: UserRole;
   groups?: string[];
+  authMethod?: string;
   identification?: string;
   additionalInfo?: string;
   profileImage?: string;

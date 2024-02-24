@@ -9,7 +9,10 @@ import { UIBootstrapService } from './core/services/uibootstrap.service';
 export class AppComponent {
   title = 'admin';
 
-  constructor(public uiBootstrapService: UIBootstrapService) { }
+  constructor(public uiBootstrapService: UIBootstrapService,
+    // private authGoogleService: AuthGoogleService,
+    // private router: Router
+    ) { }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {

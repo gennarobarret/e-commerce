@@ -7,8 +7,6 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
-
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -21,4 +19,5 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
     LayoutRoutingModule
   ]
 })
+  
 export class LayoutModule { }

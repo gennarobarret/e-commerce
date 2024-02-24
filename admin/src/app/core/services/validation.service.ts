@@ -41,4 +41,22 @@ export class ValidationService {
     };
   }
 
+  validateLogo(file: File): { [key: string]: any } | null {
+    if (!file) {
+      return { required: true };
+    }
+
+    const validTypes = ['image/png', 'image/jpeg', 'image/gif', 'image/webp'];
+    if (!validTypes.includes(file.type)) {
+      return { invalidFileType: true };
+    }
+
+    // Suponiendo un tamaño máximo de 4MB
+    if (file.size > 4000000) {
+      return { invalidFileSize: true };
+    }
+
+    return null; // No hay errores
+  }
 }
+

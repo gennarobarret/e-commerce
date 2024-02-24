@@ -22,7 +22,7 @@ export class initialConfigGuard implements CanActivate {
           return true;
         } else if (response.verificationRequired) {
           // Redirigir a la ruta de reenvío de correo si la verificación es necesaria
-          this._router.navigate(['/initial-config/resend-email-verification']);
+          this._router.navigate(['/initial-config/verification-pending']);
           return false;
         } else {
           // Redirigir al login si no se requiere configuración ni activación

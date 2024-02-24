@@ -2,29 +2,25 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WrapperComponent } from './wrapper/wrapper.component';
 import { AccountSetupComponent } from './account-setup/account-setup.component';
-import { BillingDetailsComponent } from './billing-details/billing-details.component';
+import { BusinessSetupComponent } from './business-setup/business-setup.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { ReviewAndSubmitComponent } from './review-and-submit/review-and-submit.component';
-import { ActivationComponent } from './activation/activation.component';
-import { ResendEmailVerificationComponent } from './resend-email-verification/resend-email-verification.component';
+import { MasterAdminSetupGuard } from 'src/app/core/guards/master-admin-setup.guard';
 
-import { initialConfigGuard } from 'src/app/core/guards/initial-config.guard';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: WrapperComponent, canActivate: [initialConfigGuard],
-    children: [
-      { path: 'step1', component: AccountSetupComponent },
-      { path: 'step2', component: BillingDetailsComponent },
-      { path: 'step3', component: PreferencesComponent },
-      { path: 'step4', component: ReviewAndSubmitComponent },
-      { path: 'resend-email-verification', component: ResendEmailVerificationComponent },
-      { path: '', redirectTo: 'step1', pathMatch: 'full' }
-    ],
-  },
-  { path: 'activation/:token', component: ActivationComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  // {
+  //   path: '',
+  //   component: WrapperComponent,
+  //   children: [
+  //     { path: '', redirectTo: 'step1', pathMatch: 'full' },
+  //     { path: 'step1', component: AccountSetupComponent },
+  //     { path: 'step2', component: BusinessSetupComponent },
+  //     { path: 'step3', component: PreferencesComponent },
+  //     { path: 'step4', component: ReviewAndSubmitComponent },
+  //   ],
+  // },
+  // { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

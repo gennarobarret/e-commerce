@@ -1,0 +1,101 @@
+<!-- Wizard tab pane item 1 -->
+<div class="py-5 py-xl-10">
+    <div class="row justify-content-center">
+        <div class="col-xxl-6 col-xl-8">
+            <h3 class="text-primary">Step 2</h3>
+            <h5 class="card-title mb-4">Enter your business details and information</h5>
+            <ng-container *ngIf="load_data">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </ng-container>
+            <form [formGroup]="businessSetupForm"  (ngSubmit)="goToNextStep()">
+                <div class="row mb-3">
+                    <div class="col-md-8 themed-grid-col">
+                        <div class="pb-3">
+                            <label for="inputBusinessName" class="form-label">Business Name</label>
+                            <input type="text" id="inputBusinessName" class="form-control" formControlName="inputBusinessName">
+                            <!-- Error Messages -->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 themed-grid-col">
+                                <label class="small mb-1" for="inputCountryAddress">Country</label>
+                                <select class="form-control" id="inputCountryAddress" formControlName="inputCountryAddress"
+                                    (change)="onCountryChange($event)"
+                                    [ngClass]="{'is-invalid': businessSetupForm.get('inputCountryAddress')?.invalid && (businessSetupForm.get('inputCountryAddress')?.dirty || businessSetupForm.get('inputCountryAddress')?.touched)}">
+                                    <option value="" disabled selected>Select your country</option>
+                                    <option *ngFor="let country of countries" [value]="country.id">
+                                        {{ country.name }}
+                                    </option>
+                                </select>
+                                <div *ngIf="businessSetupForm.get('inputCountryAddress')?.invalid && (businessSetupForm.get('inputCountryAddress')?.dirty || businessSetupForm.get('inputCountryAddress')?.touched)"
+                                    class="text-danger">
+                                    <span *ngIf="businessSetupForm.get('inputCountryAddress')?.errors?.['required']">
+                                        Country address is required.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 themed-grid-col"><label class="small mb-1" for="inputStateAddress">State</label>
+                            <select class="form-control" id="inputStateAddress" formControlName="inputStateAddress"
+                                [ngClass]="{'is-invalid': businessSetupForm.get('inputStateAddress')?.invalid && (businessSetupForm.get('inputStateAddress')?.dirty || businessSetupForm.get('inputStateAddress')?.touched)}">
+                                <option value="" disabled>Select your state</option>
+                                <option *ngFor="let state of filteredStates" [value]="state.id">
+                                    {{ state.province_name }}
+                                </option>
+                            </select>
+                            <div *ngIf="businessSetupForm.get('inputStateAddress')?.invalid && (businessSetupForm.get('inputStateAddress')?.dirty || businessSetupForm.get('inputStateAddress')?.touched)"
+                                class="text-danger">
+                                <span *ngIf="businessSetupForm.get('inputStateAddress')?.errors?.['required']">
+                                    State address is required.
+                                </span>
+                            </div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center themed-grid-col">
+                        <label for="logo" class="form-label">Business Logo</label>
+                        <img class="img-account-profile rounded-circle mb-2" [src]="imageUrl" alt="logo" />
+                        <!-- Profile picture help block-->
+                        <div class="small font-italic text-muted mb-1">
+                            PNG, JPEG, JPG,GIF, WEBP
+                        </div>
+                        <div class="small font-italic text-muted mb-4">
+                            No larger than 5 MB
+                        </div>
+                        <div *ngIf="businessSetupForm.get('inputLogo')?.invalid && (businessSetupForm.get('inputLogo')?.dirty || businessSetupForm.get('inputLogo')?.touched)"
+                            class="text-danger">
+                            <span class="small font-italic mb-4"
+                                *ngIf="businessSetupForm.get('inputLogo')?.errors?.['required']">
+                                User image name is required.
+                            </span>
+                            <span class="small font-italic  mb-4"
+                                *ngIf="businessSetupForm.get('inputLogo')?.errors?.['invalidFileType']">
+                                User image must be png, jpeg, jpg, gif, webp.
+                            </span>
+                            <span class="small font-italic  mb-4"
+                                *ngIf="businessSetupForm.get('inputLogo')?.errors?.['invalidFileSize']">
+                                User image must be no larger than 5 MB.
+                            </span>
+                        </div>
+                        <!-- Hidden file input for selecting image -->
+                        <input type="file" #fileInput class="d-none" (change)="fileChangeEvent($event)"
+                            formControlName="inputLogo" title="logo"
+                            [ngClass]="{'is-invalid': businessSetupForm.get('inputLogo')?.invalid && (businessSetupForm.get('inputLogo')?.dirty || businessSetupForm.get('inputLogo')?.touched)}" />
+                        <!-- Profile picture upload button-->
+                        <button class="btn btn-primary" type="button" (click)="triggerFileInput()">Upload new
+                            image
+                        </button>
+                    </div>
+                </div>
+                <!-- Repite la estructura anterior para cada campo requerido -->
+                <!-- <button type="submit" class="btn btn-primary" [disabled]="loading">Submit</button> -->
+                <hr class="my-4" />
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-light" type="button" (click)="goToPreviousStep()">Previous</button>
+                    <button class="btn btn-primary" type="button" [disabled]="loading" (click)="goToNextStep()">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

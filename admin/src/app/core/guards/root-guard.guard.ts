@@ -1,41 +1,3 @@
-// import { Injectable } from '@angular/core';
-// import { CanActivate, Router } from '@angular/router';
-// import { InitialConfigService } from '../services/initial-config.service';
-// import { Observable, catchError, map, of } from 'rxjs';
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class RootGuard implements CanActivate {
-//   constructor(
-//     private initialConfigService: InitialConfigService,
-//     private router: Router
-//   ) { }
-
-//   canActivate(): Observable<boolean> | boolean {
-//     const setupRequiredLocal = this.initialConfigService.needsInitialConfiguration();
-
-//     if (setupRequiredLocal === null) {
-//       return this.initialConfigService.InitialCheck().pipe(
-//         map(response => {
-//           if (response.data.setupRequired) {
-//             this.router.navigate(['/initial-config']);
-//             return false;
-//           }
-//           return true;
-//         }),
-//         catchError(() => {
-//           this.router.navigate(['/auth/login']);
-//           return of(false);
-//         })
-//       );
-//     } else if (setupRequiredLocal) {
-//       this.router.navigate(['/initial-config']);
-//       return false;
-//     }
-//     return true;
-//   }
-// }
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
@@ -65,3 +27,4 @@ export class RootGuard implements CanActivate {
         );
     }
 }
+

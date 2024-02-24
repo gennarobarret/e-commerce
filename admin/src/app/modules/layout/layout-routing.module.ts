@@ -6,19 +6,19 @@ import { isLoggedInGuard } from 'src/app/core/guards/is-logged-in.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '', 
+    // canActivate:[isLoggedInGuard],
     component: MainLayoutComponent,
-    canActivate: [isLoggedInGuard],
     children: [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       {
         path: 'dashboard',
         loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule)
       },
-      {
-        path: 'account-settings',
-        loadChildren: () => import('../account-settings/account-settings.module').then(m => m.AccountSettingsModule)
-      },
+      // {
+      //   path: 'account-settings',
+      //   loadChildren: () => import('../account-settings/account-settings.module').then(m => m.AccountSettingsModule)
+      // },
       { path: '**', redirectTo: '/dashboard' }
     ]
   }

@@ -33,14 +33,10 @@ const createUser = async (req, res) => {
 const getUser = async (req, res) => {
     try {
         const userId = req.user ? req.user.sub : null;
-
         if (!userId) {
             return res.status(400).json({ message: "No user ID found in token" });
         }
-
         const user = await User.findById(userId);
-
-
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
@@ -98,9 +94,7 @@ const updateUser = async function (req, res) {
         userToUpdate.role = data.role;
         userToUpdate.identification = data.identification;
         userToUpdate.additionalInfo = data.additionalInfo;
-
         await userToUpdate.save();
-
         res.status(200).send({
             message: "User updated successfully",
             data: userToUpdate,
@@ -112,7 +106,6 @@ const updateUser = async function (req, res) {
         });
     }
 };
-
 
 module.exports = {
     createUser,

@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { UIBootstrapService } from 'src/app/core/services/uibootstrap.service';
 import { UserManagementService } from "src/app/core/services/user-management.service";
 
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -14,8 +15,7 @@ export class SidebarComponent implements OnInit {
   constructor(
     private _authService: AuthService,
     private _uiBootstrapService: UIBootstrapService,
-    private _userManagementService: UserManagementService
-
+    private _userManagementService: UserManagementService,
   ) { }
 
   ngOnInit(): void {
@@ -23,9 +23,10 @@ export class SidebarComponent implements OnInit {
     this._uiBootstrapService.toggleSideNavigation();
     this._uiBootstrapService.activateFeatherIcons();
     this.fetchUserData();
+
   }
 
-  fetchUserData() {
+  fetchUserData() {  
     this._userManagementService.getUser().subscribe(
       response => {
         this.user = response;
@@ -37,14 +38,3 @@ export class SidebarComponent implements OnInit {
     );
   }
 }
-
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-sidebar',
-//   templateUrl: './sidebar.component.html',
-//   styleUrls: ['./sidebar.component.css']
-// })
-// export class SidebarComponent {
-
-// }

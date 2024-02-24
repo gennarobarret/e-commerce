@@ -99,10 +99,11 @@ export class AccountSetupComponent {
           Validators.pattern("^[a-zA-Z0-9\\sñÑ]+$")
         ]
       ]
-    }, { validator: this._validationService.mustMatch('inputPassword', 'inputConfirmPassword') }); // Aquí se añade el validador de mustMatch
+    }, { validator: this._validationService.mustMatch('inputPassword', 'inputConfirmPassword') });
   }
 
   ngOnInit(): void {
+    this.load_data = true;
     this.loadCountriesAndStates().subscribe(([countries, states]) => {
       if (countries) {
         this.countries = countries.sort((a: Country, b: Country) =>
@@ -113,15 +114,14 @@ export class AccountSetupComponent {
         this.states = states.sort((a: State, b: State) => a.province_name.localeCompare(b.province_name));
       }
       this.restoreFormData();
+      this.load_data = false;
     });
   }
 
   restoreFormData() {
-    const savedData = this._sharedDataBetweenStepService.getStepData('accountSetup');
-    console.log("🚀 ~ AccountSetupComponent ~ restoreFormData ~ savedData:", savedData)
-    
+    const savedData = this._sharedDataBetweenStepService.getStepData('accountSetup');    
     if (!savedData) {
-      this._router.navigate([""]);
+      // this._router.navigate([""]);
     } else {
       this.accountSetupForm.patchValue(savedData);
       if (savedData.inputCountryAddress) {
@@ -188,4 +188,5 @@ export class AccountSetupComponent {
       this._toastService.showToast('error', 'Please fill all required fields');
     }
   }
+  
 }

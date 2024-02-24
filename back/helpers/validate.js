@@ -15,8 +15,8 @@ const validateUser = (data) => {
         firstName: Joi.string().trim().required(),
         lastName: Joi.string().trim().required(),
         organizationName: Joi.string().trim(),
-        countryAddress: Joi.string().trim().required(),
-        stateAddress: Joi.string().trim().required(),
+        countryAddress: Joi.string().trim(),
+        stateAddress: Joi.string().trim(),
         emailAddress: Joi.string()
             .email()
             .lowercase()
